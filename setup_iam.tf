@@ -191,7 +191,10 @@ data "aws_iam_policy_document" "ops_custom_s3_readonly" {
     effect = "Allow"
     actions = [
       "s3:GetObject",
+      "s3:GetObjectVersion",
       "s3:ListBucket",
+      "s3:ListAllMyBuckets",
+      "s3:ListBucketVersions",
       "s3:GetBucketLocation"
     ]
     resources = [
@@ -224,6 +227,11 @@ data "aws_iam_policy_document" "ops_user_other_permissions" {
       "aws-portal:ViewBilling",
       "aws-portal:ViewUsage",
       "aws-portal:ViewPaymentMethods",
+
+      # Clopudtrail events.
+      "cloudtrail:DescribeTrails",
+      "cloudtrail:GetTrailStatus",
+      "cloudtrail:ListTrails",
 
       # Region and Console settings
       "account:ListRegions",
