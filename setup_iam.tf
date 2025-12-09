@@ -32,8 +32,8 @@ variable "admin_users_list" {
 #########################################################
 # IAM GROUPS, USERS
 #########################################################
-resource "aws_iam_group" "admin_group" {
-  name = "admins"
+data "aws_iam_group" "admin_group" {
+  group_name = "Administrators"
 }
 
 resource "aws_iam_group" "ops_group" {
